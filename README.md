@@ -112,4 +112,4 @@ thread_id: 31 bid: 0 array size: 2 block threads: 64
 [999990 more rows]
 Time Taken is 3.6753339767456055
 ```
-# From 63 second on CPU to 3.7 second on GPU. Amazing!
+# From 65 second on CPU to 3.7 second on GPU. Amazing!
