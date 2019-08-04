@@ -1,5 +1,4 @@
 import pandas as pd
-import cudf as dd
 import time
 import numpy as np
 from math import cos, sin, asin, sqrt, pi

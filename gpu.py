@@ -6,7 +6,7 @@ from numba import cuda
 
 start = time.time()
 np.random.seed(12)
-data_length = 1000
+data_length = 1000000
 
 df = dd.DataFrame()
 df['lat1'] = np.random.normal(10, 1, data_length)
@@ -15,9 +15,7 @@ df['lat2'] = np.random.normal(10, 1, data_length)
 df['lon2'] = np.random.normal(10, 1, data_length)
 
 def haversine_distance_kernel(lat1, lon1, lat2, lon2, out):
-    """Haversine distance formula taken from Michael Dunn's StackOverflow post:
-    https://stackoverflow.com/questions/4913349/haversine-formula-in-python-bearing-and-distance-between-two-gps-points
-    """
+    
     for i, (x_1, y_1, x_2, y_2) in enumerate(zip(lat1, lon1, lat2, lon2)):
         print('thread_id:', cuda.threadIdx.x, 'bid:', cuda.blockIdx.x,
               'array size:', lat1.size, 'block threads:', cuda.blockDim.x)
